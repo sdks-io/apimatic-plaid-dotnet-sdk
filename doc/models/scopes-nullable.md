@@ -1,0 +1,50 @@
+
+# Scopes Nullable
+
+*This model accepts additional fields of type object.*
+
+## Structure
+
+`ScopesNullable`
+
+## Fields
+
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `ProductAccess` | [`ProductAccess`](../../doc/models/product-access.md) | Optional | The product access being requested. Used to or disallow product access across all accounts. If unset, defaults to all products allowed. |
+| `Accounts` | [`List<AccountAccess>`](../../doc/models/account-access.md) | Optional | - |
+| `NewAccounts` | `bool?` | Optional | Allow access to newly opened accounts as they are opened. If unset, defaults to `true`.<br><br>**Default**: `true` |
+| `AdditionalProperties` | `object this[string key]` | Optional | - |
+
+## Example (as JSON)
+
+```json
+{
+  "new_accounts": true,
+  "product_access": {
+    "statements": false,
+    "identity": false,
+    "auth": false,
+    "transactions": false,
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
+  },
+  "accounts": [
+    {
+      "unique_id": "unique_id6",
+      "authorized": false,
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
+    }
+  ],
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
+}
+```
+
